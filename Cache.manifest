@@ -2,7 +2,6 @@ CACHE MANIFEST
 
 CACHE: 
 index.html
-cache.html
 exploit.js
 int64.js
 rop.js
