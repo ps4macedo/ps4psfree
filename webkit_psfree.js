@@ -630,7 +630,7 @@ async function setup_arw(save, ssv_data) {
 
     for (const msg of msgs) {
         if (msg.data !== '') {
-            showMessage('[+] Webkit exploit (PSFree) (achieved arbitrary r/w)');
+            showMessage('Exploração do Webkit (PSFree) (alcançado r/w arbitrário)');
 
 
             const u = new Uint8Array(msg.data);
@@ -662,7 +662,7 @@ async function setup_arw(save, ssv_data) {
             return;
         }
     }
-    die('no arbitrary r/w');
+    die('ERRO!!!\n\nSem r/w arbitrário.\n\nSaia do navegador usando o CIRCULO, e entre novamente.');
 }
 
 // Don't create additional references to rstr, use the global variable. This
@@ -717,19 +717,19 @@ async function run_psfree() {
     showMessage('[+] Webkit exploit (PSFree) (Step 0 - Readying)');
     await get_ready();
 
-    showMessage('[+] Webkit exploit (PSFree) (Step 1 - UAF)');
+    showMessage('Exploração do Webkit (PSFree) (Etapa 1 - UAF)');
     await use_after_free(pop, s1);
 
     // we trigger the leak first because it is more likely to work
     // than if it were to happen during the second ssv smashing
     // on the ps4
-    showMessage('[+] Webkit exploit (PSFree) (Step 2 - Double free)');
+    showMessage('Exploração do Webkit (PSFree) (Etapa 2 - Duplo grátis)');
     // * keeps setup_ar()'s total sleep even lower
     // * also helps the garbage collector scheduling for 9.xx
     await sleep(0);
     await double_free(s1);
 
-    showMessage('[+] Webkit exploit (PSFree) (Step 2 - Triple free)');
+    showMessage('Exploração do Webkit (PSFree) (Etapa 2 - Triplo grátis)');
     await triple_free(s1, jsview, view_leak_arr, view_leak);
 
     // clear_log();
